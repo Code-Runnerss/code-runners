@@ -1,35 +1,276 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050505"><meta name="description" content="Code Runners builds custom Shopify stores, apps, checkout extensions and integrations for growing brands.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
 <title>Code Runners® — Shopify Development Studio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/jpeg" href="assets/cr-logo.jpg"><link rel="stylesheet" href="style.css">
+<meta name="description" content="Code Runners is a Shopify development studio building custom stores, apps, checkout extensions and integrations for growing brands.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Code Runners® — Shopify Development Studio">
+<meta property="og:description" content="Custom Shopify stores, apps, checkout extensions and integrations for growing brands.">
+<meta property="og:image" content="https://code-runnerss.github.io/code-runners/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://code-runnerss.github.io/code-runners/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://code-runnerss.github.io/code-runners/">
+<link rel="icon" href="assets/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Show the intro loader only when JS runs; never let it block the page for long.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 4000);
+  }
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="script.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="hero3d.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Code Runners","url":"https://code-runnerss.github.io/code-runners/","logo":"https://code-runnerss.github.io/code-runners/assets/cr-logo.png","image":"https://code-runnerss.github.io/code-runners/assets/og-image.jpg","description":"Shopify development studio building custom stores, apps, checkout extensions and integrations for growing brands.","slogan":"Play · Code · Build · Repeat","areaServed":"Worldwide","address":{"@type":"PostalAddress","addressCountry":"IN"},"sameAs":["https://www.instagram.com/code_runners/"],"founder":{"@type":"Person","name":"Chintan Patel","url":"https://code-runnerss.github.io/portfolio/"},"knowsAbout":["Shopify","Shopify theme development","Shopify app development","Checkout extensions","Liquid","Online Store 2.0"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which Shopify plans do you work with?","acceptedAnswer":{"@type":"Answer","text":"All of them. Store builds, theme work, custom apps and integrations work on any Shopify plan. Some checkout customisations, such as extensions on the information, shipping and payment steps, are only available on Shopify Plus, so we confirm what your plan supports before we scope anything."}},{"@type":"Question","name":"Can you work with my existing theme?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can customise the theme you already have, add new sections and features, or migrate you to a modern Online Store 2.0 theme while keeping the functionality your store depends on."}},{"@type":"Question","name":"Do you build custom Shopify apps?","acceptedAnswer":{"@type":"Answer","text":"Yes. We build private, store-specific apps and integrations for logic an off-the-shelf app doesn't handle, such as custom workflows, data syncing or connections to your other business tools."}},{"@type":"Question","name":"Do you offer support after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ongoing support and maintenance is one of our core services: fixes, improvements, performance work and new features as your store grows."}},{"@type":"Question","name":"How do we get started?","acceptedAnswer":{"@type":"Answer","text":"Send us a message on Instagram with a short brief: your store, what you need and your timeline. We'll ask a few questions, recommend an approach and share an estimate before any work starts."}}]}</script>
 </head>
 <body>
-<header class="site-header"><a class="brand" href="#top"><img src="assets/cr-logo.jpg" alt="CR"><span><b>CODE <em>RUNNERS</em></b><small>PLAY · CODE · BUILD · REPEAT</small></span></a><nav id="nav"><a href="#services">Services</a><a href="#why-us">Why us</a><a href="#process">Process</a><a href="#contact">Contact</a></nav><a class="header-cta" href="#contact">LET'S TALK <b>↗</b></a><button class="menu" aria-label="Open menu" aria-expanded="false">☰</button></header>
-<main id="top">
-<section class="hero">
-<div class="hero-copy"><div class="eyebrow"><i></i> INDEPENDENT SHOPIFY DEVELOPMENT STUDIO</div><p class="location">INDIA / WORLDWIDE</p><h1>LET'S BUILD<br>YOUR <em>SHOPIFY</em><br>SOLUTION.</h1><p class="lead">Custom solutions to build, grow and scale your Shopify store.</p><div class="hero-actions"><a class="btn" href="#contact">LET'S BUILD <b>↗</b></a><a class="scroll-link" href="#services">EXPLORE SERVICES ↓</a></div><div class="hero-proof"><span>01 — CUSTOM STORES</span><span>02 — APPS & INTEGRATIONS</span><span>03 — CHECKOUT EXTENSIONS</span></div></div>
-<div class="hero-art"><div class="beam beam-one"></div><div class="beam beam-two"></div><div class="dot-field"></div><div class="hero-watermark">CR</div><div class="shop-window"><div class="window-top"><i></i><i></i><i></i><span>YOUR BRAND / ONLINE STORE</span></div><div class="store-screen"><small>NEW COLLECTION</small><strong>Make your<br>brand <em>stand out.</em></strong><span>Thoughtful design. Powerful commerce.</span><b>SHOP NOW ↗</b><div class="product-row"><i></i><i></i><i></i></div></div></div><div class="shop-bag"><strong>S</strong><small>SHOPIFY</small></div><div class="art-caption">BUILT FOR GROWING BRANDS <b>↗</b></div></div>
-<div class="hero-index">01 / 09</div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="loader" aria-hidden="true">
+  <img src="assets/cr-logo.png" alt="" width="400" height="400">
+  <span class="loader-count" id="loader-count">00</span>
+  <span class="loader-bar"><i id="loader-bar"></i></span>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="reveal-img" id="reveal-img" aria-hidden="true"><img src="assets/posts/custom-store-development.jpg" alt=""></div>
+
+<header class="site-header" id="header">
+  <a class="lockup" href="#top" aria-label="Code Runners — back to top">
+    <img src="assets/cr-logo.png" alt="" width="400" height="400">
+    <span class="lockup-text"><b>CODE</b><b class="o">RUNNERS</b></span>
+  </a>
+  <nav class="site-nav" id="nav" aria-label="Primary">
+    <a href="#services"><small>01</small><span data-scramble>Services</span></a>
+    <a href="#work"><small>02</small><span data-scramble>Work</span></a>
+    <a href="#process"><small>03</small><span data-scramble>Process</span></a>
+    <a href="#faq"><small>04</small><span data-scramble>FAQ</span></a>
+    <a href="#contact"><small>05</small><span data-scramble>Contact</span></a>
+    <div class="nav-foot">
+      <a href="https://www.instagram.com/code_runners/" target="_blank" rel="noopener">Instagram ↗</a>
+      <span>Play · Code · Build · Repeat</span>
+    </div>
+  </nav>
+  <a class="header-cta" href="#contact" data-cursor="Talk">Start a project <span aria-hidden="true">↗</span></a>
+  <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-visual" aria-hidden="true">
+    <canvas class="hero-canvas" id="hero-canvas"></canvas>
+    <picture class="hero-fallback">
+      <source media="(max-width: 700px)" srcset="assets/hero-commerce-960.jpg">
+      <img src="assets/hero-commerce.jpg" alt="" width="1672" height="941">
+    </picture>
+  </div>
+
+  <p class="hero-tag"><i></i>Shopify development studio · India / Worldwide</p>
+  <h1 class="hero-title" aria-label="We build Shopify that runs.">
+    <span class="line" aria-hidden="true"><span class="split">WE BUILD</span></span>
+    <span class="line indent" aria-hidden="true"><span class="split outline">SHOPIFY</span></span>
+    <span class="line" aria-hidden="true"><span class="split">THAT RUNS<em>.</em></span></span>
+  </h1>
+  <div class="hero-foot">
+    <p>Custom Shopify stores, apps and checkout experiences for brands that want more than a template.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#contact" data-cursor="Talk">Start a project <span aria-hidden="true">→</span></a>
+      <a class="scroll-cue" href="#services">Scroll <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
 </section>
-<div class="ticker"><div>SHOPIFY DEVELOPMENT <b>✳</b> CUSTOM STORES <b>✳</b> CUSTOM APPS <b>✳</b> CHECKOUT EXTENSIONS <b>✳</b> THEME CUSTOMIZATION <b>✳</b> INTEGRATIONS <b>✳</b> SHOPIFY DEVELOPMENT <b>✳</b></div></div>
-<section class="section services" id="services"><div class="section-tag">01 / WHAT WE DO</div><div class="section-intro"><h2>SHOPIFY<br><em>DEVELOPMENT</em><br>SERVICES.</h2><p>From storefront to checkout, we build the tools and experiences your business needs to move forward.</p></div><div class="service-grid">
-<article class="service-card"><span>01</span><div class="service-icon">▣</div><h3>Custom Shopify<br>Store Development</h3><p>Fully tailored, high-performance storefronts built around your brand and customers.</p><small>STORE SETUP · ONLINE STORE 2.0</small></article>
-<article class="service-card"><span>02</span><div class="service-icon">&lt;/&gt;</div><h3>Custom Shopify<br>Apps</h3><p>Powerful, brand-specific apps to extend your store's capabilities.</p><small>PRIVATE APPS · CUSTOM LOGIC</small></article>
-<article class="service-card"><span>03</span><div class="service-icon">▤</div><h3>Checkout<br>Extensions</h3><p>Enhance checkout with custom fields, upsells and Shopify-native extensions.</p><small>CHECKOUT UI · VALIDATIONS</small></article>
-<article class="service-card"><span>04</span><div class="service-icon">✳</div><h3>Theme<br>Customization</h3><p>Flexible Liquid sections, blocks, templates and custom storefront features.</p><small>LIQUID · METAFIELDS · DAWN</small></article>
-<article class="service-card"><span>05</span><div class="service-icon">⌘</div><h3>Apps &<br>Integrations</h3><p>Connect Shopify with payment, marketing, analytics and business tools.</p><small>API · AUTOMATION · SYNC</small></article>
-<article class="service-card"><span>06</span><div class="service-icon">◉</div><h3>Ongoing Support<br>& Optimization</h3><p>Keep your store fast, stable and ready for what comes next.</p><small>PERFORMANCE · QA · SUPPORT</small></article>
-</div></section>
-<section class="why section" id="why-us"><div class="section-tag">02 / WHY CODE RUNNERS</div><div class="why-layout"><div><h2>WHY WORK<br>WITH <em>US?</em></h2><p class="why-lead">A reliable Shopify development partner for custom, scalable and high-performance commerce solutions.</p><a class="outline-link" href="#contact">LET'S BUILD SOMETHING ↗</a></div><div class="why-list"><article><b>01</b><div><h3>Shopify Expertise</h3><p>Deep platform knowledge and development best practices.</p></div><i>↗</i></article><article><b>02</b><div><h3>Custom Solutions</h3><p>Stores, apps and checkout extensions built around your needs.</p></div><i>↗</i></article><article><b>03</b><div><h3>Performance Focused</h3><p>Fast, scalable and conversion-ready implementation.</p></div><i>↗</i></article><article><b>04</b><div><h3>Collaborative Approach</h3><p>Clear communication, reliable delivery and long-term support.</p></div><i>↗</i></article></div></div></section>
-<section class="integration section"><div class="section-tag">03 / CONNECT YOUR STACK</div><div class="integration-head"><h2>INTEGRATIONS &<br><em>AUTOMATION.</em></h2><p>Connect your Shopify store with the right tools and automate your business.</p></div><div class="integration-flow"><div class="tool">P</div><div class="tool">◎</div><div class="tool">M</div><div class="shopify-core"><b>S</b><small>SHOPIFY</small></div><div class="tool">▥</div><div class="tool">✳</div><div class="tool">&lt;/&gt;</div></div><div class="integration-types"><span>✓ PAYMENT GATEWAYS</span><span>✓ MARKETING PLATFORMS</span><span>✓ ANALYTICS TOOLS</span><span>✓ API INTEGRATIONS</span></div></section>
-<section class="process section" id="process"><div class="section-tag">04 / OUR PROCESS</div><div class="process-head"><h2>OUR DEVELOPMENT<br><em>PROCESS.</em></h2><p>A clear and structured approach to deliver reliable Shopify solutions.</p></div><div class="steps"><article><b>01</b><div class="step-icon">▤</div><div><h3>Discovery & Planning</h3><p>Understand your business goals and requirements.</p></div></article><article><b>02</b><div class="step-icon">&lt;/&gt;</div><div><h3>Design & Development</h3><p>Build a custom solution tailored to your needs.</p></div></article><article><b>03</b><div class="step-icon">✓</div><div><h3>Testing & Quality Assurance</h3><p>Ensure performance, security and a smooth user experience.</p></div></article><article><b>04</b><div class="step-icon">↗</div><div><h3>Launch & Support</h3><p>Deploy your solution and provide ongoing support.</p></div></article></div></section>
-<section class="cta-section" id="contact"><div class="section-tag">05 / START A PROJECT</div><div class="cta-content"><p>HAVE A SHOPIFY PROJECT IN MIND?</p><h2>LET'S BUILD<br>YOUR <em>SHOPIFY</em><br>SOLUTION.</h2><a class="btn" href="https://www.instagram.com/code_runners/" target="_blank" rel="noreferrer">GET IN TOUCH <b>↗</b></a></div><div class="cta-orbit">CR</div></section>
+
+<!-- MARQUEE -->
+<div class="marquees" aria-hidden="true">
+  <div class="marquee m-orange"><div class="marquee-track">
+    <span>Custom Stores <b>✦</b> Shopify Apps <b>✦</b> Checkout Extensions <b>✦</b> Theme Customization <b>✦</b> Integrations <b>✦</b> Performance <b>✦</b></span>
+    <span>Custom Stores <b>✦</b> Shopify Apps <b>✦</b> Checkout Extensions <b>✦</b> Theme Customization <b>✦</b> Integrations <b>✦</b> Performance <b>✦</b></span>
+  </div></div>
+  <div class="marquee m-dark"><div class="marquee-track">
+    <span>Play <b>●</b> Code <b>●</b> Build <b>●</b> Repeat <b>●</b> Play <b>●</b> Code <b>●</b> Build <b>●</b> Repeat <b>●</b></span>
+    <span>Play <b>●</b> Code <b>●</b> Build <b>●</b> Repeat <b>●</b> Play <b>●</b> Code <b>●</b> Build <b>●</b> Repeat <b>●</b></span>
+  </div></div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto" aria-label="About the studio">
+  <p class="label" data-reveal>( The studio )</p>
+  <p class="statement" id="statement">We're a Shopify studio that writes the code templates can't. Custom storefronts, apps and checkout experiences, built fast, built to scale, built to run.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="sec-head">
+    <p class="label" data-reveal>( 01 — What we do )</p>
+    <h2 class="big" data-reveal>Services<span class="o">.</span></h2>
+  </div>
+  <ul class="svc-list">
+    <li class="svc" data-img="assets/posts/custom-store-development.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">01</span>
+      <div class="svc-main"><h3>Custom Stores</h3><p>Tailored, high-performance storefronts on Online Store 2.0.</p></div>
+      <span class="svc-tags">OS 2.0 · Sections · Migrations</span>
+    </li>
+    <li class="svc" data-img="assets/posts/custom-shopify-apps.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">02</span>
+      <div class="svc-main"><h3>Shopify Apps</h3><p>Brand-specific apps for logic no off-the-shelf app handles.</p></div>
+      <span class="svc-tags">Custom logic · Admin tools</span>
+    </li>
+    <li class="svc" data-img="assets/posts/checkout-extensions.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">03</span>
+      <div class="svc-main"><h3>Checkout</h3><p>Custom fields, upsells and validations inside Shopify checkout.</p></div>
+      <span class="svc-tags">Checkout UI · Validations</span>
+    </li>
+    <li class="svc" data-img="assets/posts/shopify-development-services.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">04</span>
+      <div class="svc-main"><h3>Themes</h3><p>Liquid sections, blocks and templates your team can actually run.</p></div>
+      <span class="svc-tags">Liquid · Metafields</span>
+    </li>
+    <li class="svc" data-img="assets/posts/our-services.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">05</span>
+      <div class="svc-main"><h3>Integrations</h3><p>Payments, marketing, ERP and analytics, connected and automated.</p></div>
+      <span class="svc-tags">APIs · Sync · Automation</span>
+    </li>
+    <li class="svc" data-img="assets/posts/services-laptop.jpg" data-cursor="View" data-reveal>
+      <span class="svc-num">06</span>
+      <div class="svc-main"><h3>Support</h3><p>Faster pages, fewer bugs and steady improvements after launch.</p></div>
+      <span class="svc-tags">Core Web Vitals · QA</span>
+    </li>
+  </ul>
+</section>
+
+<!-- WORK -->
+<section class="section work" id="work">
+  <div class="sec-head split">
+    <div>
+      <p class="label" data-reveal>( 02 — Proof )</p>
+      <h2 class="big" data-reveal>Real stores<span class="o">.</span></h2>
+    </div>
+    <p class="sec-lead" data-reveal>Code Runners is led by <a href="https://code-runnerss.github.io/portfolio/">Chintan Patel</a>, a Shopify developer who has shipped storefronts, migrations and custom functionality for brands worldwide.</p>
+  </div>
+  <div class="stats">
+    <div data-reveal><strong><span class="count" data-to="30">30</span>+</strong><span>Shopify stores delivered</span></div>
+    <div data-reveal><strong><span class="count" data-to="3">3</span>+</strong><span>Years on Shopify</span></div>
+    <div data-reveal><strong>OS 2.0</strong><span>Theme architecture</span></div>
+  </div>
+  <ul class="brands">
+    <li data-reveal><a href="https://moscot.com/" target="_blank" rel="noopener" data-cursor="Visit"><b>MOSCOT</b><em>Theme migration</em></a></li>
+    <li data-reveal><a href="https://www.premiumsoccer.com/" target="_blank" rel="noopener" data-cursor="Visit"><b>PremiumSoccer</b><em>Product functionality</em></a></li>
+    <li data-reveal><a href="https://www.eufy.com/au" target="_blank" rel="noopener" data-cursor="Visit"><b>Eufy AU</b><em>Navigation &amp; UI</em></a></li>
+    <li data-reveal><a href="https://eagleleather.com/" target="_blank" rel="noopener" data-cursor="Visit"><b>Eagle Leather</b><em>Accessibility</em></a></li>
+    <li data-reveal><a href="https://aracelibeauty.com/" target="_blank" rel="noopener" data-cursor="Visit"><b>Araceli Beauty</b><em>Performance</em></a></li>
+    <li data-reveal><a href="https://www.crossword.in/" target="_blank" rel="noopener" data-cursor="Visit"><b>Crossword</b><em>Store performance</em></a></li>
+    <li data-reveal><a href="https://www.marbique.com/" target="_blank" rel="noopener" data-cursor="Visit"><b>Marbique</b><em>Setup &amp; theme</em></a></li>
+    <li data-reveal><a class="brand-cta" href="#contact" data-cursor="Talk"><b>Yours next?</b><em>Start a project →</em></a></li>
+  </ul>
+  <p class="fine">Brands our founder has contributed to as a Shopify developer, shown as experience references. Scope varied by project.</p>
+</section>
+
+<!-- PROCESS -->
+<section class="section process" id="process">
+  <div class="sec-head">
+    <p class="label" data-reveal>( 03 — How we run )</p>
+    <h2 class="big" data-reveal>Process<span class="o">.</span></h2>
+  </div>
+  <ol class="steps">
+    <li class="steps-line" aria-hidden="true"><span></span></li>
+    <li data-reveal><b>01</b><h3>Discover</h3><p>Your goals, your customers, your constraints.</p></li>
+    <li data-reveal><b>02</b><h3>Build</h3><p>Design and development in focused, visible iterations.</p></li>
+    <li data-reveal><b>03</b><h3>Test</h3><p>Performance, accessibility and every device.</p></li>
+    <li data-reveal><b>04</b><h3>Launch</h3><p>Ship carefully, then keep improving.</p></li>
+  </ol>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="sec-head">
+    <p class="label" data-reveal>( 04 — Questions )</p>
+    <h2 class="big" data-reveal>FAQ<span class="o">.</span></h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item" data-reveal open><summary><span>Which Shopify plans do you work with?</span><i aria-hidden="true"></i></summary><p>All of them. Store builds, theme work, custom apps and integrations work on any Shopify plan. Some checkout customisations, such as extensions on the information, shipping and payment steps, are only available on Shopify Plus, so we confirm what your plan supports before we scope anything.</p></details>
+    <details class="faq-item" data-reveal><summary><span>Can you work with my existing theme?</span><i aria-hidden="true"></i></summary><p>Yes. We can customise the theme you already have, add new sections and features, or migrate you to a modern Online Store 2.0 theme while keeping the functionality your store depends on.</p></details>
+    <details class="faq-item" data-reveal><summary><span>Do you build custom Shopify apps?</span><i aria-hidden="true"></i></summary><p>Yes. We build private, store-specific apps and integrations for logic an off-the-shelf app doesn't handle, such as custom workflows, data syncing or connections to your other business tools.</p></details>
+    <details class="faq-item" data-reveal><summary><span>Do you offer support after launch?</span><i aria-hidden="true"></i></summary><p>Yes. Ongoing support and maintenance is one of our core services: fixes, improvements, performance work and new features as your store grows.</p></details>
+    <details class="faq-item" data-reveal><summary><span>How do we get started?</span><i aria-hidden="true"></i></summary><p>Send us a message on Instagram with a short brief: your store, what you need and your timeline. We'll ask a few questions, recommend an approach and share an estimate before any work starts.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="label dark">( 05 — Let's talk )</p>
+  <h2 class="contact-title"><span>Got a store?</span><span class="outline-dark">Let's run</span><span>it<em>.</em></span></h2>
+  <div class="contact-grid">
+    <div class="contact-copy">
+      <p>Tell us what you're building. Fill in the brief, we'll copy it and open a DM to <b>@code_runners</b>, so you just paste and send.</p>
+      <div class="contact-links">
+        <a class="btn-dark" href="https://ig.me/m/code_runners" target="_blank" rel="noopener" data-cursor="DM">Message on Instagram <span aria-hidden="true">→</span></a>
+        <a class="link-dark" href="https://code-runnerss.github.io/portfolio/">Meet the founder ↗</a>
+      </div>
+    </div>
+    <form class="brief" id="brief" novalidate>
+      <div class="brief-row">
+        <label><span>Your name</span><input name="name" type="text" autocomplete="name" placeholder="Jane Smith"></label>
+        <label><span>Store URL <small>(optional)</small></span><input name="store" type="text" inputmode="url" placeholder="yourstore.com"></label>
+      </div>
+      <fieldset>
+        <legend>What do you need?</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="need" value="Custom store"><span>Custom store</span></label>
+          <label><input type="checkbox" name="need" value="Shopify app"><span>Shopify app</span></label>
+          <label><input type="checkbox" name="need" value="Checkout extension"><span>Checkout</span></label>
+          <label><input type="checkbox" name="need" value="Theme work"><span>Theme work</span></label>
+          <label><input type="checkbox" name="need" value="Integrations"><span>Integrations</span></label>
+          <label><input type="checkbox" name="need" value="Support and performance"><span>Support</span></label>
+        </div>
+      </fieldset>
+      <label><span>Timeline</span>
+        <select name="timeline"><option>As soon as possible</option><option>Within 1–3 months</option><option selected>Flexible</option></select>
+      </label>
+      <label><span>Project details</span><textarea name="details" rows="3" placeholder="What are you building, and what does success look like?"></textarea></label>
+      <button class="brief-submit" type="submit" data-cursor="Send">Copy brief &amp; open Instagram <span aria-hidden="true">→</span></button>
+      <p class="brief-status" id="brief-status" role="status" aria-live="polite"></p>
+      <textarea class="brief-out" id="brief-out" rows="6" readonly hidden aria-label="Your brief"></textarea>
+    </form>
+  </div>
+</section>
 </main>
-<footer><a class="brand" href="#top"><img src="assets/cr-logo.jpg" alt="CR"><span><b>CODE <em>RUNNERS</em></b><small>PLAY · CODE · BUILD · REPEAT</small></span></a><div class="footer-links"><a href="https://www.instagram.com/code_runners/" target="_blank" rel="noreferrer">INSTAGRAM ↗</a><a href="#top">BACK TO TOP ↑</a></div><div class="copyright">© 2026 CODE RUNNERS®. ALL RIGHTS RESERVED.</div></footer>
-</body></html>
+
+<a class="float-cta" id="float-cta" href="#contact">Let&#39;s talk <span aria-hidden="true">→</span></a>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <p class="footer-tag">Play <i>•</i> Code <i>•</i> Build <i>•</i> Repeat</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://www.instagram.com/code_runners/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://code-runnerss.github.io/portfolio/">Founder ↗</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+  </div>
+  <p class="footer-word" aria-label="Code Runners"><span class="fw" aria-hidden="true">CODE</span><span class="fw o" aria-hidden="true">RUNNERS</span></p>
+  <div class="footer-bottom">
+    <span>© <span id="year">2026</span> Code Runners®</span>
+    <span>Shopify development studio · India / Worldwide</span>
+  </div>
+</footer>
+</body>
+</html>
