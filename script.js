@@ -118,24 +118,18 @@
     });
   }
 
-  /* ---------- Custom cursor + hover image ---------- */
+  /* ---------- Custom cursor ---------- */
   if (finePointer && !reduce) {
     const ring = document.querySelector('.cursor');
     const dot = document.querySelector('.cursor-dot');
     const label = ring?.querySelector('.cursor-label');
-    const reveal = document.getElementById('reveal-img');
-    const revealImg = reveal?.querySelector('img');
     if (ring && dot) {
-      let x = -100, y = -100, rx = -100, ry = -100, ix = -100, iy = -100;
+      let x = -100, y = -100, rx = -100, ry = -100;
       root.classList.add('has-cursor');
       addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; dot.style.transform = `translate(${x}px, ${y}px)`; }, { passive: true });
       const follow = () => {
         rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
         ring.style.transform = `translate(${rx}px, ${ry}px)`;
-        if (reveal) {
-          ix += (x - ix) * 0.12; iy += (y - iy) * 0.12;
-          reveal.style.transform = `translate(${ix - reveal.offsetWidth / 2}px, ${iy - reveal.offsetHeight / 2}px)`;
-        }
         requestAnimationFrame(follow);
       };
       follow();
@@ -150,18 +144,6 @@
       });
       document.addEventListener('pointerleave', () => { dot.style.opacity = ring.style.opacity = '0'; });
       document.addEventListener('pointerenter', () => { dot.style.opacity = ring.style.opacity = ''; });
-
-      if (reveal && revealImg) {
-        document.querySelectorAll('.svc[data-img]').forEach((row) => {
-          new Image().src = row.dataset.img;
-          row.addEventListener('pointerenter', () => {
-            if (!reveal.classList.contains('show')) { ix = x; iy = y; }
-            revealImg.src = row.dataset.img;
-            reveal.classList.add('show');
-          });
-          row.addEventListener('pointerleave', () => reveal.classList.remove('show'));
-        });
-      }
     }
   }
 

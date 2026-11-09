@@ -62,11 +62,6 @@ h1, h2, h3, h4, p { margin: 0; }
 html.has-cursor .cursor, html.has-cursor .cursor-dot { opacity: 1; }
 html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor summary, html.has-cursor label { cursor: none; }
 
-/* hover image that follows the pointer over the services list */
-.reveal-img { position: fixed; top: 0; left: 0; z-index: 45; width: 280px; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; pointer-events: none; opacity: 0; scale: .85; border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(0, 0, 0, .6), 0 0 50px rgba(255, 106, 0, .18); transition: opacity .3s, scale .4s var(--ease); }
-.reveal-img.show { opacity: 1; scale: 1; }
-.reveal-img img { width: 100%; height: 100%; object-fit: cover; }
-
 /* ---------- Type helpers ---------- */
 h1, h2 { font-weight: 800; letter-spacing: -.025em; }
 .label { font-size: 13px; font-weight: 600; letter-spacing: .06em; color: var(--dim); }
