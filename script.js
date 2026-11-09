@@ -9,6 +9,23 @@
   const hasGsap = !!(window.gsap && window.ScrollTrigger);
   if (hasGsap) gsap.registerPlugin(ScrollTrigger);
 
+  /* ---------- Intro loader ---------- */
+  const count = document.getElementById('loader-count');
+  const fill = document.getElementById('loader-bar');
+  if (root.classList.contains('is-loading')) {
+    const start = performance.now();
+    const dur = 1300;
+    const step = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const v = Math.round(100 * (1 - Math.pow(1 - p, 3)));
+      if (count) count.textContent = String(v).padStart(2, '0');
+      if (fill) fill.style.transform = `scaleX(${v / 100})`;
+      if (p < 1) requestAnimationFrame(step);
+      else setTimeout(() => { root.classList.remove('is-loading'); if (hasGsap) ScrollTrigger.refresh(); }, 180);
+    };
+    requestAnimationFrame(step);
+  }
+
   /* ---------- Smooth scroll (Lenis) ---------- */
   let lenis = null;
   if (window.Lenis && !reduce) {
@@ -45,21 +62,19 @@
     if (!target) return;
     e.preventDefault();
     setMenu(false);
-    if (lenis) lenis.scrollTo(target, { offset: -header.offsetHeight + 1, duration: 1.2 });
+    const top = id === '#top';
+    if (lenis) lenis.scrollTo(top ? 0 : target, { offset: top ? 0 : -header.offsetHeight + 1, duration: 1.2 });
+    else if (top) scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
     history.replaceState(null, '', id);
   }));
 
-  /* ---------- Header state + progress ---------- */
-  const bar = document.querySelector('.progress span');
+  /* ---------- Header state + floating CTA ---------- */
   const floatCta = document.getElementById('float-cta');
   const heroEl = document.querySelector('.hero');
   const contactEl = document.getElementById('contact');
   const onScroll = () => {
     header?.classList.toggle('scrolled', scrollY > 12);
-    const max = root.scrollHeight - innerHeight;
-    if (bar) bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-    // mobile "Let's Talk" button: visible after the hero, hidden once the contact section is on screen
     if (floatCta && heroEl && contactEl) {
       const past = scrollY > heroEl.offsetHeight * 0.8;
       const atContact = contactEl.getBoundingClientRect().top < innerHeight * 0.9;
@@ -70,7 +85,7 @@
   onScroll();
 
   /* ---------- Active nav link ---------- */
-  const links = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  const links = [...document.querySelectorAll('.site-nav > a[href^="#"]')];
   const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   if ('IntersectionObserver' in window && sections.length) {
     const spy = new IntersectionObserver((entries) => entries.forEach((en) => {
@@ -82,21 +97,72 @@
     }, { passive: true });
   }
 
-  /* ---------- Custom cursor ---------- */
-  if (finePointer && !reduce) {
-    const dot = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
-    let x = -100, y = -100, rx = -100, ry = -100;
-    root.classList.add('has-cursor');
-    addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; dot.style.transform = `translate(${x}px, ${y}px)`; }, { passive: true });
-    const follow = () => { rx += (x - rx) * 0.18; ry += (y - ry) * 0.18; ring.style.transform = `translate(${rx}px, ${ry}px)`; requestAnimationFrame(follow); };
-    follow();
-    document.querySelectorAll('a, button, .service, .post').forEach((el) => {
-      el.addEventListener('pointerenter', () => ring.classList.add('hover'));
-      el.addEventListener('pointerleave', () => ring.classList.remove('hover'));
+  /* ---------- Text scramble on nav hover ---------- */
+  if (!reduce) {
+    const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&*+';
+    document.querySelectorAll('[data-scramble]').forEach((el) => {
+      const text = el.textContent;
+      let raf = 0;
+      const run = () => {
+        cancelAnimationFrame(raf);
+        let frame = 0;
+        const total = text.length * 3;
+        const tick = () => {
+          el.textContent = [...text].map((ch, i) => (ch === ' ' || frame >= i * 3 ? ch : glyphs[(Math.random() * glyphs.length) | 0])).join('');
+          if (++frame <= total) raf = requestAnimationFrame(tick);
+          else el.textContent = text;
+        };
+        tick();
+      };
+      (el.closest('a') || el).addEventListener('pointerenter', run);
     });
-    document.addEventListener('pointerleave', () => { dot.style.opacity = ring.style.opacity = '0'; });
-    document.addEventListener('pointerenter', () => { dot.style.opacity = ring.style.opacity = ''; });
+  }
+
+  /* ---------- Custom cursor + hover image ---------- */
+  if (finePointer && !reduce) {
+    const ring = document.querySelector('.cursor');
+    const dot = document.querySelector('.cursor-dot');
+    const label = ring?.querySelector('.cursor-label');
+    const reveal = document.getElementById('reveal-img');
+    const revealImg = reveal?.querySelector('img');
+    if (ring && dot) {
+      let x = -100, y = -100, rx = -100, ry = -100, ix = -100, iy = -100;
+      root.classList.add('has-cursor');
+      addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; dot.style.transform = `translate(${x}px, ${y}px)`; }, { passive: true });
+      const follow = () => {
+        rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
+        ring.style.transform = `translate(${rx}px, ${ry}px)`;
+        if (reveal) {
+          ix += (x - ix) * 0.12; iy += (y - iy) * 0.12;
+          reveal.style.transform = `translate(${ix - reveal.offsetWidth / 2}px, ${iy - reveal.offsetHeight / 2}px)`;
+        }
+        requestAnimationFrame(follow);
+      };
+      follow();
+      document.querySelectorAll('a, button, summary, label, [data-cursor]').forEach((el) => {
+        el.addEventListener('pointerenter', () => {
+          const text = el.dataset.cursor;
+          ring.classList.toggle('labelled', !!text);
+          ring.classList.toggle('hover', !text);
+          if (label) label.textContent = text || '';
+        });
+        el.addEventListener('pointerleave', () => ring.classList.remove('hover', 'labelled'));
+      });
+      document.addEventListener('pointerleave', () => { dot.style.opacity = ring.style.opacity = '0'; });
+      document.addEventListener('pointerenter', () => { dot.style.opacity = ring.style.opacity = ''; });
+
+      if (reveal && revealImg) {
+        document.querySelectorAll('.svc[data-img]').forEach((row) => {
+          new Image().src = row.dataset.img;
+          row.addEventListener('pointerenter', () => {
+            if (!reveal.classList.contains('show')) { ix = x; iy = y; }
+            revealImg.src = row.dataset.img;
+            reveal.classList.add('show');
+          });
+          row.addEventListener('pointerleave', () => reveal.classList.remove('show'));
+        });
+      }
+    }
   }
 
   /* ---------- Reveal on scroll ---------- */
@@ -146,43 +212,20 @@
   const statement = document.getElementById('statement');
   if (statement) statement.innerHTML = statement.textContent.trim().split(/\s+/).map((w) => `<span class="w">${w}</span>`).join(' ');
 
-  /* ---------- Service tile spotlight ---------- */
-  document.querySelectorAll('.service').forEach((card) => card.addEventListener('pointermove', (e) => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-    card.style.setProperty('--my', `${e.clientY - r.top}px`);
-  }));
-
   /* ---------- GSAP scenes ---------- */
   if (hasGsap && !reduce) {
-    gsap.from('.hero-title .line > span', { yPercent: 110, duration: 1.15, ease: 'power4.out', stagger: 0.12, delay: 0.1 });
-    gsap.fromTo('.hero-copy', { opacity: 1, y: 0 }, { opacity: 0, y: -60, ease: 'none', immediateRender: false, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    const introDelay = root.classList.contains('is-loading') ? 1.45 : 0.1;
+    gsap.from('.hero-title .line > span', { yPercent: 110, duration: 1.15, ease: 'power4.out', stagger: 0.12, delay: introDelay });
+    gsap.from('.hero-tag, .hero-foot', { opacity: 0, y: 20, duration: 1, ease: 'power3.out', stagger: 0.1, delay: introDelay + 0.35 });
 
-    gsap.fromTo('#showcase-frame', { scale: 0.86, rotateX: 12, transformPerspective: 1200 }, { scale: 1, rotateX: 0, ease: 'none', scrollTrigger: { trigger: '#showcase-frame', start: 'top bottom', end: 'center center', scrub: true } });
     gsap.to('#statement .w', { opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: '#statement', start: 'top 80%', end: 'bottom 45%', scrub: true } });
 
-    document.querySelectorAll('.post-img').forEach((img) => {
-      gsap.fromTo(img, { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.fromTo('.steps-line span', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.steps', start: 'top 85%', end: 'bottom 55%', scrub: true } });
+
+    document.querySelectorAll('.contact-title span').forEach((line, i) => {
+      gsap.fromTo(line, { xPercent: i % 2 ? 10 : -10 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'top 25%', scrub: true } });
     });
 
-    document.querySelectorAll('.cta-title span').forEach((line, i) => {
-      gsap.fromTo(line, { xPercent: i % 2 ? 12 : -12 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'top 25%', scrub: true } });
-    });
-
-    // Instagram feed: pinned horizontal gallery on large screens
-    const feed = document.getElementById('feed');
-    const track = document.getElementById('feed-track');
-    if (feed && track) {
-      gsap.matchMedia().add('(min-width: 1024px)', () => {
-        feed.classList.add('is-pinned');
-        const distance = () => Math.max(0, track.scrollWidth - (innerWidth - track.offsetLeft));
-        gsap.to(track, {
-          x: () => -distance(), ease: 'none',
-          scrollTrigger: { trigger: feed.querySelector('.feed-pin'), pin: true, scrub: 0.8, start: 'top top', end: () => '+=' + distance(), invalidateOnRefresh: true, anticipatePin: 1 }
-        });
-        return () => feed.classList.remove('is-pinned');
-      });
-    }
     addEventListener('load', () => ScrollTrigger.refresh());
   } else {
     root.classList.add('no-scrub');
