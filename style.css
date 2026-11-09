@@ -34,3 +34,68 @@ footer{background:#050505}
 .nav-cta,.button-hot{border-radius:999px}
 .button-hot{background:linear-gradient(110deg,#ff8a00,#ff5700);box-shadow:0 8px 30px rgba(255,96,0,.22)}
 @media(max-width:640px){.cr-emblem{width:42px;height:42px}.lockup-type>b{font-size:18px}.lockup-type small{font-size:6px;letter-spacing:.11em;gap:4px}.lockup-type small span{width:11px}.brand-lockup{gap:8px;min-width:0}}
+
+
+/* CAMPAIGN IDENTITY PASS — match the Code Runners social artwork */
+:root{--orange:#ff6a00;--bg:#050505;--panel:#11100e;--panel2:#1b1713;--white:#fff;--muted:#c2c2c2}
+body{background:#050505}
+.topbar{background:rgba(5,5,5,.92);border-bottom:1px solid rgba(255,106,0,.28)}
+.brand-lockup .cr-emblem{width:58px;height:58px;object-fit:cover;border-radius:7px}
+.hero{background:radial-gradient(ellipse at 78% 57%,rgba(255,106,0,.25),transparent 38%),linear-gradient(125deg,#050505 0%,#090807 62%,#160900 100%)}
+.hero:before{width:72%;height:56%;right:-20%;top:23%;border:2px solid rgba(255,106,0,.7);box-shadow:0 0 35px rgba(255,106,0,.3),inset 0 0 35px rgba(255,106,0,.12)}
+.hero:after{opacity:.32;background-image:radial-gradient(#ff6a00 1.3px,transparent 1.5px);background-size:19px 19px;mask-image:linear-gradient(90deg,transparent 48%,#000 100%)}
+.hero h1{font-size:clamp(76px,10.8vw,164px);line-height:.82;letter-spacing:-.085em;text-transform:uppercase}
+.hero h1 em{color:#ff6a00;text-shadow:0 0 30px rgba(255,106,0,.15)}
+.hero-logo-fallback{position:absolute;z-index:2;width:min(47%,340px);aspect-ratio:1;object-fit:cover;border-radius:26px;box-shadow:0 0 90px rgba(255,106,0,.24);opacity:.92;transform:translateY(-4px)}
+.hero-visual canvas{z-index:3;filter:drop-shadow(0 20px 45px rgba(255,80,0,.25))}
+.visual-halo{width:440px;height:440px;background:radial-gradient(circle,rgba(255,106,0,.36),rgba(255,106,0,.12) 43%,transparent 72%)}
+.ticker{background:#ff6a00;color:#080604;transform:none;padding:19px 0;border-block:1px solid #ff9b43}
+.section-pad{background-color:#050505}
+.intro{background:radial-gradient(ellipse at 85% 40%,rgba(255,106,0,.08),transparent 35%),#090909}
+.intro h2,.section-heading h2,.contact h2{font-weight:700;text-transform:uppercase;letter-spacing:-.09em}
+.intro h2 span,.section-heading h2 span,.contact h2 span{color:#ff6a00;font-style:italic}
+.intro-bottom>p,.section-heading>p,.cap-list p,.process-grid p,.contact-content>p:not(.micro){color:#d0d0d0}
+.stamp{border-color:#ff6a00;background:rgba(255,106,0,.07)}
+.stamp img{width:48px;height:48px;object-fit:cover;border-radius:6px}
+.capabilities{background:radial-gradient(ellipse at 90% 15%,rgba(255,106,0,.09),transparent 35%),#050505}
+.cap-list article{border:1px solid rgba(255,106,0,.42);border-radius:18px;background:linear-gradient(115deg,rgba(255,106,0,.11),rgba(255,255,255,.025) 55%,rgba(255,106,0,.045));box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 12px 35px rgba(0,0,0,.24);padding:30px 26px;margin-bottom:16px}
+.cap-list article:hover{background:linear-gradient(115deg,rgba(255,106,0,.2),rgba(255,255,255,.04));border-color:#ff6a00;transform:translateY(-3px)}
+.cap-list h3{font-size:clamp(23px,2.6vw,34px);color:#fff}
+.cap-list small{color:#ff9b52}
+.manifesto{background:linear-gradient(120deg,#ff7900,#ff5b00 58%,#ff7900);min-height:490px}
+.manifesto-mark{width:92px;height:92px;clip-path:none;background:transparent}
+.manifesto-mark img{width:100%;height:100%;object-fit:cover;border-radius:13px;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.manifesto p{font-size:clamp(56px,9vw,116px);text-transform:uppercase}
+.work{background:radial-gradient(ellipse at 15% 50%,rgba(255,106,0,.07),transparent 38%),#080808}
+.work-art{border:1px solid rgba(255,106,0,.55);background-color:#100c08!important;color:#fff!important;box-shadow:0 15px 55px rgba(0,0,0,.45),inset 0 0 70px rgba(255,106,0,.1)}
+.art-moscot{background:radial-gradient(circle at 50% 45%,#552708,#100805 70%)!important}
+.art-soccer{background:radial-gradient(circle at 75% 25%,#803000,#100805 70%)!important}
+.art-eufy{background:radial-gradient(circle at 60% 35%,#73320c,#120905 72%)!important;color:#fff!important}
+.art-leather{background:radial-gradient(circle at 50% 35%,#9a470e,#170a04 72%)!important}
+.art-moscot strong,.art-soccer strong,.art-eufy strong,.art-leather strong{text-shadow:0 5px 25px rgba(255,106,0,.18)}
+.work-caption b{color:#ff8a35}
+.process{background:#050505}
+.process-grid article{background:linear-gradient(145deg,rgba(255,106,0,.09),rgba(255,255,255,.018));border:1px solid rgba(255,106,0,.35);border-radius:14px;margin-right:10px;padding:25px 18px}
+.process-grid h3{color:#fff}
+.contact{background:radial-gradient(ellipse at 78% 45%,rgba(255,106,0,.2),transparent 40%),#080706}
+.contact-orb:before{background:radial-gradient(circle at 35% 28%,#ffb36e,#ff6a00 38%,#a32f00 72%,#160600);box-shadow:inset -30px -35px 70px rgba(0,0,0,.5),0 0 130px rgba(255,106,0,.32)}
+.contact-orb img{position:absolute;z-index:2;width:118px;height:118px;object-fit:cover;border-radius:15px;box-shadow:0 12px 35px rgba(0,0,0,.35)}
+.contact-orb b{display:none}
+footer{background:#050505;border-top:1px solid rgba(255,106,0,.3)}
+.footer-links a:hover{color:#ff6a00}
+.copyright{border-color:rgba(255,106,0,.22)}
+@media(max-width:640px){
+.brand-lockup .cr-emblem{width:46px;height:46px}
+.hero{background:radial-gradient(ellipse at 75% 66%,rgba(255,106,0,.2),transparent 42%),#050505}
+.hero h1{font-size:clamp(70px,17.6vw,116px);line-height:.84}
+.hero-visual{height:370px;margin-top:4px}
+.hero-logo-fallback{width: min(65%,270px);border-radius:19px}
+.visual-halo{width:300px;height:300px}
+.cap-list article{padding:25px 18px;border-radius:16px}
+.manifesto{min-height:390px}
+.manifesto-mark{width:78px;height:78px}
+.work-art,.work-a .work-art{background-color:#100905!important}
+.process-grid{gap:12px}
+.process-grid article{margin:0;padding:20px 14px}
+.contact-orb img{width:90px;height:90px}
+}
