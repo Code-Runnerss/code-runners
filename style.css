@@ -191,6 +191,22 @@ h1, h2 { font-weight: 800; letter-spacing: -.025em; }
 .brands .brand-cta:hover { background: linear-gradient(160deg, #ffa340, var(--orange)); }
 .brands .brand-cta:hover em { color: #0a0a0a; }
 
+/* Beyond storefronts: platform build card */
+.platform { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 28px 56px; margin-top: clamp(48px, 6vw, 72px); padding: clamp(28px, 3.4vw, 48px); border-radius: 24px; border: 1px solid var(--line); background: radial-gradient(ellipse 60% 80% at 100% 0%, rgba(255, 106, 0, .16), transparent 70%), #0d0d0d; transition: border-color .3s, translate .3s var(--ease); }
+.platform:hover { border-color: var(--line-strong); translate: 0 -4px; }
+.platform-copy h3 { margin: 14px 0 14px; font-size: clamp(36px, 4.4vw, 64px); font-weight: 900; line-height: 1; letter-spacing: -.04em; }
+.platform-copy > p:not(.label) { color: var(--muted); font-size: 16px; max-width: 540px; }
+.platform-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.platform-tags li { padding: 6px 12px; border-radius: 30px; border: 1px solid var(--line-strong); font-size: 12px; font-weight: 600; color: var(--orange-hot); }
+.platform-points { align-self: center; border-top: 1px solid var(--line-soft); }
+.platform-points li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); font-size: 14px; }
+.platform-points b { font-weight: 800; color: var(--text); }
+.platform-points span { color: var(--muted); }
+.platform-copy { grid-row: span 2; }
+.platform-go { grid-column: 2; justify-self: end; display: inline-flex; gap: 8px; font-size: 13px; font-weight: 700; color: var(--orange-hot); }
+.platform-go i { font-style: normal; transition: transform .3s var(--ease); }
+.platform:hover .platform-go i { transform: translate(3px, -3px); }
+
 /* Process */
 .process { background: radial-gradient(ellipse 50% 50% at 10% 90%, rgba(255, 106, 0, .1), transparent 70%), var(--bg-2); }
 .steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-top: 40px; }
@@ -320,6 +336,9 @@ html.lenis, html.lenis body { height: auto; }
   .svc { grid-template-columns: 56px minmax(0, 1fr); }
   .svc-tags { grid-column: 2; justify-self: start; text-align: left; margin-top: -8px; }
   .contact-grid { grid-template-columns: 1fr; }
+  .platform { grid-template-columns: 1fr; }
+  .platform-copy { grid-row: auto; }
+  .platform-go { grid-column: 1; justify-self: start; }
 
   .float-cta { position: fixed; z-index: 70; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 40px; background: linear-gradient(180deg, var(--orange-hot), var(--orange-deep)); color: #fff; font-size: 15px; font-weight: 700; box-shadow: 0 12px 30px rgba(255, 106, 0, .45); transform: translateY(160%); transition: transform .35s var(--ease); }
   .float-cta span { font-size: 18px; line-height: 1; }
@@ -350,6 +369,9 @@ html.lenis, html.lenis body { height: auto; }
   .brands { grid-template-columns: 1fr 1fr; }
   .brands a { min-height: 140px; padding: 20px 18px; gap: 20px; }
   .brands b { font-size: 18px; }
+
+  .platform { padding: 24px 20px; border-radius: 20px; }
+  .platform-points li { grid-template-columns: 1fr; gap: 2px; }
 
   .steps { grid-template-columns: 1fr; gap: 14px; }
   .steps li { padding: 24px 22px; }
